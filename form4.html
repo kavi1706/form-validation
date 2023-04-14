@@ -1,0 +1,123 @@
+<html>
+                        <head>
+                            
+                            <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+                            <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+                        </head>
+                        <body class="bg-secondary">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 style="text-align: center; color: white; background-color:blue;">FORM VALIDATION</h2>
+                                    </div>
+                                    </div>
+                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form name="myform" action="form3.html" method="get" class="form-control"onsubmit="return validate()">
+                                                <b>Name:</b> <input type="text" name="n" id="n1" > <br><br>
+                                                <b>Password:</b> <input type="password" name="pass" id="n2">  <br><br>
+                                                <b>UserName:</b> <input type="text" name="name" id="n3">   <br><br>
+                                                <b>Gender: </b><input type="radio" id="m" name="gender" value="male">male
+                                               <input type="radio" id="f" name="gender" value="Female">Female   <br><br>
+                                               <b>Events:</b> <input type="checkbox" name="check1" id="ch1" value="running">running
+                                               <input type="checkbox" name="check2" id="ch2" value="running">singing
+                                               <input type="checkbox" name="check3" id="ch3" value="running"> dancing<br>
+                                               <input type="checkbox" name="check2" id="ch4" value="running">drawing
+                                               <input type="checkbox" name="check2" id="ch5" value="running">swimming
+                                               <br>
+                                                <b>Mobile Number: </b><input type="text" name="phno" id="p">   <br><br>
+                                                <b>Mail:</b> <input type="text" id="e" name="email"> <br><br>
+                                                <b>Select your city:</b> <select name="city" id="c">
+                                                    <option value="None">None</option>
+                                                    <option value="Erode">Erode</option>
+                                                    <option value="Cbe">Cbe</option> 
+                                                    <option value="namakkal">namakkal</option>
+                                                    <option value="chennai">chennai</option>
+                                
+                                                </select>   <br><br>
+                                               
+                                                <input type="submit" value="SUBMIT" class="btn btn-warning">
+                                               
+                                            </form>
+                    
+                                        </div>
+                                    </div>
+                                        <script type="text/javascript">
+                                            function validate()
+                                            {
+                                              var name=document.getElementById("n1").value;
+                                             
+                                             var n1=/^([A-Z])+\.[A-Z]*$/;
+                                             var r=n1.test(name);
+                                         
+                                             if(!r)
+                                             {
+                                                 alert("Enter valid name");
+                                                 return false;
+                                                 
+                                             }
+                                             var p=document.getElementById("n2").value;
+                                            let p1=/^[A-z0-9]{8,12}$/;
+                                            var pass=p1.test(p);
+                                            if(!pass)
+                                            {
+                                            alert("Enter valid password ");
+                                            document.myform.pass.focus();
+                                            return false;
+                                             }
+                                             var u=document.getElementById("n3").value;
+                                    
+                                    let pattern=/^[a-z]{6,10}[_]+$/;
+                                    var u1=pattern.test(u);
+                                if(!u1)
+                                {
+                                        alert("Enter valid username");
+                                        return false;
+                                }
+                                         
+                                    var ph=document.getElementById("p").value;
+                                    var ph1=/^\d{10}$/;
+                                    var p2=ph1.test(ph);
+                                if(!p2)
+                                {
+                                        alert("Enter valid mobile number");
+                                        return false;
+                                }
+                                var e=document.getElementById("e").value;
+                                    let e1=/^([a-z])+([a-z0-9])*\@([a-z0-9])*\.([a-z]{2,4})$/;
+                                    var e2=e1.test(e);
+                                if(!e2)
+                                {
+                                        alert("enter valid mail");
+                                        document.myform.email.focus();
+                                        return false;
+                                }
+                                
+                                var sel=document.getElementById("c");
+                                    var selectedText=sel.options[sel.selectedIndex].text;
+                                    
+                                if(selectedText=="None")
+                                {
+                                    alert("City not selected");
+                                    return false;
+                                }
+                                      
+                                if(document.getElementById("m").checked==false && document.getElementById("f").checked==false)
+                                {
+                                        
+                                        alert("Gender not selected");
+                                        return false;
+                                }
+                                if(document.getElementById("ch1").checked==false && document.getElementById("ch2").checked==false && document.getElementById("ch3").checked==false && document.getElementById("ch4").checked==false && document.getElementById("ch5").checked==false)
+                                {
+                                        alert("Event not selected");
+                                        return false;
+                                        
+                                }
+                                
+                                
+                                            }
+                                            </script>
+                                            </body>
+                                            </html>
